@@ -19,16 +19,15 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepublish": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version",
+    "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version",
     "publish:verdaccio": "npm publish dist --registry http://localhost:4873",
-    "publish:gitlab-config-a": "npm config set @cjc:registry https://gitlab.com/api/v4/packages/npm/",
-    "publish:gitlab-config-b": "npm config set '//gitlab.com/api/v4/projects/zg2pro-calculateur-conges/calculateur-conges-api/packages/npm/:_authToken' ${GITLAB_COM_ZG2PRO_TOKEN}",
-    "publish:gitlab-config-c": "npm config set '//gitlab.com/api/v4/packages/npm/:_authToken' ${GITLAB_COM_ZG2PRO_TOKEN}",
-    "publish:gitlab-config": "npm run publish:gitlab-config-a & npm run publish:gitlab-config-b & npm run publish:gitlab-config-c",
+    "publish:gitlab-config-a": "npm config set https://zg2pro-verdaccio.herokuapp.com/:_authToken ${VERDACCIO_HEROKU_AUTH_TOKEN}",
+    "publish:gitlab-config-b": "npm config set https://zg2pro-verdaccio.herokuapp.com/:always-auth true",
+    "publish:gitlab-config": "npm run publish:gitlab-config-a & npm run publish:gitlab-config-b",
     "publish:gitlab-ci": "npm publish"
   },
   "files": [
-    "dist/*", "package.json"
+    "dist", "package.json"
   ],
   "publishConfig": {
       "@cjc:registry":"https://gitlab.com/api/v4/projects/zg2pro-calculateur-conges/calculateur-conges-api/packages/npm/"

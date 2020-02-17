@@ -1,9 +1,6 @@
 image: node:12.15
 before_script:
   - set -xe
-  #- npm install -g date-now-cli
-  #- git config --global user.email "gitlab-ci@gitlab.com"
-  #- git config --global user.name "Gitlab"
 stages:
   - prepare
   - build
@@ -23,7 +20,7 @@ build:
   stage: build
   script:
     - npm run publish:gitlab-config
-    - npm run prepublish
+    - npm run prepublish:version
     - npm run build
   artifacts:
     paths:
