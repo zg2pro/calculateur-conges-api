@@ -27,6 +27,9 @@
     "publish:gitlab-config": "npm run publish:gitlab-config-a & npm run publish:gitlab-config-b & npm run publish:gitlab-config-c",
     "publish:gitlab-ci": "npm publish dist"
   },
+    "publishConfig": {
+      "@cjc:registry":"https://gitlab.com/api/v4/projects/zg2pro-calculateur-conges/calculateur-conges-api/packages/npm/"
+  }
   "dependencies": {
     "@nestjs/common": "^6.10.14",
     "@nestjs/core": "^6.10.14",
