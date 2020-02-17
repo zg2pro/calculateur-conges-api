@@ -38,7 +38,8 @@ test:
 deploy-api:
   stage: deploy
   script:
-    - npm publish:gitlab-config
+    - npm run publish:gitlab-config
+    - npm run prepublish
     - npm run publish:gitlab-ci
   only:
     - master
