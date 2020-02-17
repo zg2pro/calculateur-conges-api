@@ -1,6 +1,6 @@
 {
   "name": "@cjc/calculateur-conges-api",
-  "version": "0.0.0-20200216163747920",
+  "version": "0.0.0-20200217132837587",
   "description": "calculateur-conges-api",
   "author": "Gregory Anne",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepublish": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS')",
+    "prepublish": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version",
     "publish:verdaccio": "npm publish dist --registry http://localhost:4873",
     "publish:gitlab-config-a": "npm config set @cjc:registry https://gitlab.com/api/v4/packages/npm/",
     "publish:gitlab-config-b": "npm config set '//gitlab.com/api/v4/projects/zg2pro-calculateur-conges/calculateur-conges-api/packages/npm/:_authToken' ${GITLAB_COM_ZG2PRO_TOKEN}",
