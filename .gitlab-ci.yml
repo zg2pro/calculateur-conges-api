@@ -1,0 +1,47 @@
+image: node:12.15
+before_script:
+  - set -xe
+stages:
+  - prepare
+  - build
+  - test
+  - deploy
+cache:
+  paths:
+    - node_modules/
+install_dependencies:
+  stage: prepare
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+  only:
+    - master
+  tags:
+    - docker
+test:
+  stage: test
+  script:
+    - npm run test
+  only:
+    - master
+  tags:
+    - docker
+deploy-api:
+  stage: deploy
+  script:
+    - npm publish:gitlab-config
+    - npm run publish:gitlab-ci
+  only:
+    - master
+  tags:
+    - docker
+    
