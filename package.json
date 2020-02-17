@@ -25,7 +25,7 @@
     "publish:gitlab-config-b": "npm config set '//gitlab.com/api/v4/projects/zg2pro-calculateur-conges/calculateur-conges-api/packages/npm/:_authToken' ${GITLAB_COM_ZG2PRO_TOKEN}",
     "publish:gitlab-config-c": "npm config set '//gitlab.com/api/v4/packages/npm/:_authToken' ${GITLAB_COM_ZG2PRO_TOKEN}",
     "publish:gitlab-config": "npm run publish:gitlab-config-a & npm run publish:gitlab-config-b & npm run publish:gitlab-config-c",
-    "publish:gitlab-ci": "npm publish dist"
+    "publish:gitlab-ci": "npm publish"
   },
   "files": [
     "dist/*", "package.json"
