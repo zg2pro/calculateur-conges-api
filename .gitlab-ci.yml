@@ -24,6 +24,7 @@ build:
   artifacts:
     paths:
       - dist/
+      - package.json
   only:
     - master
   tags:
@@ -41,7 +42,7 @@ deploy-api:
   script:
  # this token expires every day anyway
     - npm run publish:config
-    - npm publish
+    - npm publish --access public
   only:
     - master
   tags:
