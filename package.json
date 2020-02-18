@@ -23,7 +23,7 @@
     "publish:verdaccio": "npm publish dist --registry http://localhost:4873",
     "publish:gitlab-config-a": "npm config set https://zg2pro-verdaccio.herokuapp.com/:_authToken ${VERDACCIO_HEROKU_AUTH_TOKEN}",
     "publish:gitlab-config-b": "npm config set https://zg2pro-verdaccio.herokuapp.com/:always-auth true",
-    "install:gitlab-config-c": "npm config set registry https://zg2pro-verdaccio.herokuapp.com/",
+    "publish:gitlab-config-c": "npm config set registry https://zg2pro-verdaccio.herokuapp.com/",
     "publish:gitlab-config": "npm run publish:gitlab-config-a & npm run publish:gitlab-config-b & npm run publish:gitlab-config-c",
     "publish:gitlab-ci": "npm publish"
   },
