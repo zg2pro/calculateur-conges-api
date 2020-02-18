@@ -19,7 +19,8 @@ install_dependencies:
 build:
   stage: build
   script:
-    - npm run publish:gitlab-config
+  # this token expires every day anyway
+    - npm run publish:config -- jQap7WB6y5JC0ymzzz4mWHDmQvmjLmE0CRFXbtf1Fw1Pnef8Qnp5gdTZcw9/jAOR
     - npm run prepublish:version
     - npm run build
   artifacts:
