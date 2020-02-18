@@ -41,7 +41,7 @@ test:
 deploy-api:
   stage: deploy
   script:
-    - npm run publish:gitlab-ci
+    - npm publish
   only:
     - master
   tags:
