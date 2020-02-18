@@ -19,7 +19,6 @@ install_dependencies:
 build:
   stage: build
   script:
-  # this token expires every day anyway
     - npm run prepublish:version
     - npm run build
   artifacts:
@@ -40,7 +39,8 @@ test:
 deploy-api:
   stage: deploy
   script:
-    - npm run publish:config -- jQap7WB6y5JC0ymzzz4mWHDmQvmjLmE0CRFXbtf1Fw1Pnef8Qnp5gdTZcw9/jAOR
+ # this token expires every day anyway
+    - npm run publish:config
     - npm publish
   only:
     - master

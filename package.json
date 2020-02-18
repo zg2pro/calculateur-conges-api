@@ -1,6 +1,6 @@
 {
-  "name": "@cjc/calculateur-conges-api",
-  "version": "0.0.0-3",
+  "name": "@zg2pro-org/calculateur-conges-api",
+  "version": "0.0.0-1",
   "description": "calculateur-conges-api",
   "author": "Gregory Anne",
   "license": "MIT",
@@ -20,11 +20,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version",
-    "publish:localhost": "npm publish dist --registry http://localhost:4873",
-    "publish:config-a": "npm config set //zg2pro-verdaccio.herokuapp.com/:_authToken ",
-    "publish:config-b": "npm config set //zg2pro-verdaccio.herokuapp.com/:always-auth true",
-    "publish:config-c": "npm config set registry https://zg2pro-verdaccio.herokuapp.com/",
-    "publish:config": "npm run publish:config-c & npm run publish:config-b & npm run publish:config-a"
+    "publish:config": "npm config set //registry.npmjs.org/:_authToken=1151912b-1412-4f5b-b717-4c5f23ccfa2c"
   },
   "files": [
     "dist",
@@ -76,5 +72,17 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-api.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-api/issues"
+  },
+  "homepage": "https://gitlab.com/zg2pro-calculateur-conges/calculateur-conges-api#readme"
 }
