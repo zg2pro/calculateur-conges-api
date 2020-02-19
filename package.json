@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "build:tsc": "tsc",
+    "build:tsc": "tsc -b tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -19,8 +19,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version",
-    "publish:config": "npm config set //registry.npmjs.org/:_authToken=1151912b-1412-4f5b-b717-4c5f23ccfa2c"
+    "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version"
   },
   "files": [
     "dist",
@@ -73,7 +72,8 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "main": ".eslintrc.js",
+  "main": "./dist/main.js",
+  "types": "./src/main.ts",
   "directories": {
     "test": "test"
   },
