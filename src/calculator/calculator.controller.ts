@@ -15,4 +15,9 @@ export class CalculatorController {
   run(@Body() input: CalculatorInput): number {
     return this.appService.calculation(input);
   }
+
+  @Post('/self')
+  self(@Body() input: CalculatorInput) {
+    return this.appService.selfCall(input);
+  }
 }
