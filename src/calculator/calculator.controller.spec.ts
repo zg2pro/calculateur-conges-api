@@ -1,12 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CalculatorController } from './calculator.controller';
 import { CalculatorService } from './calculator.service';
+import { HttpModule  } from '@nestjs/common';
 
-describe('AppController', () => {
+const modules = [HttpModule];
+
+describe('CalculatorController', () => {
   let appController: CalculatorController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
+      imports: [...modules],
+      exports: [...modules],
       controllers: [CalculatorController],
       providers: [CalculatorService],
     }).compile();
@@ -22,7 +27,7 @@ describe('AppController', () => {
 
   describe('run', () => {
     it('should return the right number of days off acquired', () => {
-      var expected = expect(appController.run({
+      const expected = expect(appController.run({
         "startDate": "12-09-2019",
         "endDate": "31-01-2020",
         "unpaidWeeks": 3,
@@ -34,7 +39,7 @@ describe('AppController', () => {
     });
 
     it('should return the right number of days off acquired also with saturdays', () => {
-      var expected = expect(appController.run({
+      const expected = expect(appController.run({
         "startDate": "12-09-2019",
         "endDate": "31-01-2020",
         "unpaidWeeks": 3,
