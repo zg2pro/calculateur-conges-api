@@ -1,4 +1,4 @@
-export class CalculationInput {
+export class CalculatorInput {
   startDate: string;
   endDate: string;
   unpaidWeeks: number;

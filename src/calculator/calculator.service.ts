@@ -1,14 +1,20 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable  } from '@nestjs/common';
 import * as momentBd from 'moment-business-days';
-import { CalculationInput } from './calculation-input';
+import { CalculatorInput } from './calculator-input';
+//import { HttpService  } from '@nestjs/common';
+//import { Observable } from 'rxjs'
+//import {map} from "rxjs/operators";
 
 @Injectable()
-export class AppService {
+export class CalculatorService {
+
+  //constructor(private readonly http: HttpService) {}
+
   getHello(): string {
     return 'Hello World!';
   }
 
-  calculation(input: CalculationInput): number {
+  calculation(input: CalculatorInput): number {
     let factor = 0;
     // holidays are already computed inside of the businessDays api
   //  let holidays: ['01-11-2019', '11-11-2019', '25-12-2019', '01-01-2020'];
@@ -36,4 +42,11 @@ export class AppService {
     let nbOfMonths = momentEnd.diff(momentStart, 'months')  + 1;
     return ((bDaysTotal - totalUnpaidDays) * factor * nbOfMonths) / bDaysTotal;
   }
+/*
+  selfCall(input: CalculatorInput): Observable<number> {
+    return this.http.post('http://localhost:9080/rest/api/nest/calculation', input).pipe(
+        map(response => response.data)
+    );
+  }*/
+
 }

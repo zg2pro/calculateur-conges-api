@@ -1,7 +1,7 @@
 {
   "name": "@zg2pro-org/calculateur-conges-api",
   "version": "0.0.0-1",
-  "description": "calculateur-conges-api",
+  "description": "@zg2pro-org/calculateur-conges-api",
   "author": "Gregory Anne",
   "license": "MIT",
   "scripts": {
@@ -72,7 +72,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "main": "./dist/main.js",
+  "main": ".eslintrc.js",
   "types": "./src/main.ts",
   "directories": {
     "test": "test"

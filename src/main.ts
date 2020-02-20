@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { CalculationModule } from './app.module';
+import { CalculationModule } from './calculator/calculator.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(CalculationModule);
