@@ -1,14 +1,14 @@
-import { Injectable  } from '@nestjs/common';
+import {HttpService, Injectable} from '@nestjs/common';
 import * as momentBd from 'moment-business-days';
-import { CalculatorInput } from './calculator-input';
-//import { HttpService  } from '@nestjs/common';
-//import { Observable } from 'rxjs'
-//import {map} from "rxjs/operators";
+import {CalculatorInput} from './calculator-input';
+import {Observable} from 'rxjs';
+import {map} from "rxjs/operators";
+import { AxiosResponse } from 'axios';
 
 @Injectable()
 export class CalculatorService {
 
-  //constructor(private readonly http: HttpService) {}
+  constructor(private readonly http: HttpService) {}
 
   getHello(): string {
     return 'Hello World!';
@@ -42,11 +42,11 @@ export class CalculatorService {
     let nbOfMonths = momentEnd.diff(momentStart, 'months')  + 1;
     return ((bDaysTotal - totalUnpaidDays) * factor * nbOfMonths) / bDaysTotal;
   }
-/*
-  selfCall(input: CalculatorInput): Observable<number> {
+
+  selfCall(input: CalculatorInput): Observable<AxiosResponse<number>> {
     return this.http.post('http://localhost:9080/rest/api/nest/calculation', input).pipe(
         map(response => response.data)
     );
-  }*/
+  }
 
 }
