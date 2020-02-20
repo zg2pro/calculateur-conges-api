@@ -8,11 +8,10 @@ import {AxiosResponse} from 'axios';
 @Injectable()
 export class SelfService {
 
-    constructor(@Inject('HttpService') private http) {
+    constructor(@Inject(HttpService) protected http) {
     }
 
-
-    calculation(input: CalculatorInput): Observable<AxiosResponse<number>> {
+    public calculation(input: CalculatorInput): Observable<AxiosResponse<number>> {
         return this.http.post('http://localhost:9080/rest/api/nest/calculation', input).pipe(
             map(function(response: any){
                 return response.data

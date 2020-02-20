@@ -9,7 +9,7 @@ export class CalculatorService {
     return 'Hello World!';
   }
 
-  calculation(input: CalculatorInput): number {
+  public calculation(input: CalculatorInput): number {
     let factor = 0;
     // holidays are already computed inside of the businessDays api
   //  let holidays: ['01-11-2019', '11-11-2019', '25-12-2019', '01-01-2020'];
