@@ -1,14 +1,14 @@
-import {HttpService, Injectable, Optional, Inject} from '@nestjs/common';
+import {HttpService, Injectable, Inject} from '@nestjs/common';
 import {CalculatorInput} from './calculator-input';
 import {Observable} from 'rxjs';
 import {map} from "rxjs/operators";
 import {AxiosResponse} from 'axios';
 
+
 @Injectable()
 export class SelfService {
 
-
-    constructor(@Optional() @Inject(HttpService) private http) {
+    constructor(@Inject('HttpService') private http) {
     }
 
 
