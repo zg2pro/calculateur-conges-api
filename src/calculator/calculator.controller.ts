@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body } from '@nestjs/common';
 import { CalculatorService } from './calculator.service';
 import { SelfService } from './self.service';
 import { CalculatorInput } from './calculator-input';
+import {map} from "rxjs/operators";
 
 @Controller()
 export class CalculatorController {
@@ -20,6 +21,11 @@ export class CalculatorController {
 
   @Post('/self')
   self(@Body() input: CalculatorInput) {
-    return this.selfService.calculation(input);
+    return this.selfService.calculation(input).pipe(
+        map(function(response: any){
+          console.log("response.data:"+ response.data)
+          return response.data
+        })
+    );
   }
 }
