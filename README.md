@@ -24,52 +24,36 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Generation of a NestJs project compatible with frontend frameworks (Vue, Angular, React and so on)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
+1- 
 ```bash
-$ npm install
+$ npm install -g @nestjs/cli date-now-cli
+$ nest new app-api
+$ npm install --save-dev date-now-cli
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+2- Then go to the package.json and add the scripts:
+```js
+$ "prepublish:version": "npm version 0.0.0-$(date-now --format='YYYYMMDDHHmmssSSS') --no-git-tag-version"
 ```
 
-## Test
+3- Also rename your project with your organization in prefix : `name : "@my-org/app-api"`
+This will help you publish in npm registry
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+4- Then go to the tsconfig.json file and check the following properties:
+```js
+    "module": "commonjs",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "sourceMap": true,
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-  Nest is [MIT licensed](LICENSE).
+5- In your code, when you inject a dependency, pay attention to inject in this fashion:
+```js
+constructor(@Inject(HttpService) protected http) {
+    }
+```
+This will allow Angular to override the dependency during the injection as Angular uses a different DI engine (but compatible) and different set of core tools
